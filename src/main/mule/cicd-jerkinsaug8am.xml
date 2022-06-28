@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="873c506b-8ed7-403c-85aa-9916c05f0738" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="cicd-jerkinsaug8amFlow" doc:id="5add422e-4fba-4e7b-a585-5c5c311fcae5" >
+		<http:listener doc:name="Listener" doc:id="083e661c-10eb-4ed5-8f48-ad705f172fda" path="/cicid" config-ref="HTTP_Listener_config"/>
+		<logger level="INFO" doc:name="Logger" doc:id="224ed097-f868-4592-8e8b-717da71385d3" message="Requet received"/>
+		<set-payload value='#["Success"]' doc:name="Set Payload" doc:id="d90a6aea-8017-4716-a282-cac508ed2424" />
+	</flow>
+</mule>
